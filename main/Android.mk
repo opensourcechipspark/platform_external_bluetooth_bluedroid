@@ -111,6 +111,9 @@ ifeq ($(TARGET_PRODUCT), full_maguro)
      LOCAL_CFLAGS += -DTARGET_MAGURO
 endif
 
+ifeq ($(strip $(BOARD_CONNECTIVITY_MODULE)),rda587x)
+    LOCAL_CFLAGS += -DRDA587X_BLUETOOTH
+endif
 # Fix this
 #ifeq ($(TARGET_VARIANT), eng)
 #     LOCAL_CFLAGS += -O2 # and other production release flags

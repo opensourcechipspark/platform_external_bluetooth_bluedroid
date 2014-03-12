@@ -1,3 +1,4 @@
+ifeq ($(strip $(BLUETOOTH_USE_BPLUS)),false)
 LOCAL_PATH := $(call my-dir)
 
 # Setup bdroid local make variables for handling configuration
@@ -14,3 +15,4 @@ include $(call all-subdir-makefiles)
 # Cleanup our locals
 bdroid_C_INCLUDES :=
 bdroid_CFLaGS :=
+endif
