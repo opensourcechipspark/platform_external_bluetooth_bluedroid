@@ -647,6 +647,16 @@ void do_init(char *p)
 void do_enable(char *p)
 {
     bdt_enable();
+
+    {
+        int try = 10;
+        while (!bt_enabled && try-->0) {
+            bdt_log("Waiting %ds...\n", try);
+            sleep(1);
+        }
+        if (try<=0)
+            bdt_log("bluetooth enable timeout!");
+    }
 }
 
 void do_disable(char *p)
